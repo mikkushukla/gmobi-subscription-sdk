@@ -3,7 +3,7 @@ apply plugin: 'maven'
 
 repositories {
     maven {
-        url "https://inmg01/nexus/content/repositories/sdk-repo";
+        url "https://nexus.generalmobi.mobi/nexus/content/repositories/sdk-repo";
     }
 }
 android {
