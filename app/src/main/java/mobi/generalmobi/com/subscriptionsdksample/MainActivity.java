@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.generalmobi.vas.subscription.sdk.SIMU_PARAM;
 import com.generalmobi.vas.subscription.sdk.SubscriptionManager;
 import com.generalmobi.vas.subscription.sdk.event.StateEvent;
 import com.generalmobi.vas.subscription.sdk.listener.CheckResponseListener;
@@ -37,7 +38,26 @@ public class MainActivity extends AppCompatActivity implements CheckResponseList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       final SubscriptionManager manager=new SubscriptionManager("GGCLUBW","7332",this,new HashMap<String,String>(0));
+        HashMap<String,String> options = new HashMap<String, String>();
+
+        /************************ SANDBOX ENVIRONMENT (Remove this production)********************************/
+        SubscriptionManager.BASE_URL="https://sit.generalmobi.mobi/subscription";
+        //Update the mobile number for your testing
+        String test_msisdn="919911260992";
+        SubscriptionManager.SUSBCRIPTION_URL="https://sit.generalmobi.mobi/subscription/consent/aggrigated/%s/%s/subscribe.html?ptxid=7879&identifier=%s&operator=aircel&msisdn="+test_msisdn;
+        options.put(SIMU_PARAM.OPERATOR, "aircel");
+        options.put(SIMU_PARAM.MSISDN, test_msisdn);
+        options.put(SIMU_PARAM.NETWORK_MODE, "wifi");
+
+        //As for sandbox partnerCode/product to shubhanshu.shukla@generalmobi.in
+        String sandboxProduct="test";
+        String sandboxPartner="7544";
+        /*****************************************************************************************************/
+
+
+
+
+        final SubscriptionManager manager=new SubscriptionManager(sandboxProduct,sandboxPartner,this,options);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
