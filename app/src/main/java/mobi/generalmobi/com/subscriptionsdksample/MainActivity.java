@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements CheckResponseList
         /************************ SANDBOX ENVIRONMENT (Remove this production)********************************/
         SubscriptionManager.BASE_URL="https://sit.generalmobi.mobi/subscription";
         //Update the mobile number for your testing
-        String test_msisdn="919911260992";
+        String test_msisdn="91991126099";
         SubscriptionManager.SUSBCRIPTION_URL="https://sit.generalmobi.mobi/subscription/consent/aggrigated/%s/%s/subscribe.html?ptxid=7879&identifier=%s&operator=aircel&msisdn="+test_msisdn;
         options.put(SIMU_PARAM.OPERATOR, "aircel");
         options.put(SIMU_PARAM.MSISDN, test_msisdn);
